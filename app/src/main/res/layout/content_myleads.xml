@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:id="@+id/content_myleads"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:background="@color/colorThemeBlue"
+        android:layout_height="@dimen/toolbar_height"
+        app:titleTextAppearance="@style/Toolbar.TitleText"
+        >
+    </android.support.v7.widget.Toolbar>
+    <EditText
+        android:layout_width="match_parent"
+        android:id="@+id/etSearch"
+        android:layout_height="60dp"
+        android:hint="Search" android:padding="5dp"
+        android:drawableLeft="@drawable/magnifier_24"
+        android:textSize="24sp"
+        android:drawablePadding="10dp"
+        android:background="@drawable/customborder"
+        android:layout_margin="5dp"
+        android:layout_below="@id/toolbar"
+        />
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/myLeadsListView"
+        android:layout_below="@id/etSearch"
+        />
+
+    <android.support.design.widget.FloatingActionButton
+        android:layout_width="64dp"
+        android:layout_height="60dp"
+        android:src="@drawable/funnel"
+        android:background="#0e1428"
+        android:layout_marginBottom="52dp"
+        android:layout_marginRight="16dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:clickable="true"
+        android:elevation="6dp"
+        app:pressedTranslationZ="12dp"
+        />
+</RelativeLayout>

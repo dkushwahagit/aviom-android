@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">aviomplay</string>
+    <string name="title_activity_home">HomeActivity</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="menu_home">Home</string>
+    <string name="menu_newlead">New Lead</string>
+    <string name="menu_myleads">My Leads</string>
+    <string name="menu_appointments">Appointments</string>
+    <string name="menu_logout">Log Out</string>
+</resources>
+

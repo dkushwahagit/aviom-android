@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_login"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.aviom.aviomplay.Activities.LoginActivity"
+    android:background="@drawable/login">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/TopNavContainer">
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/previous_track_button"
+                android:id="@+id/imgBtnBack"
+                android:layout_weight="1"
+                android:background="@null"
+                android:layout_margin="16dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/LoginFormContainer"
+            android:layout_marginTop="300dp"
+            android:padding="15dp">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:inputType="phone"
+                android:ems="10"
+                android:id="@+id/etUsername"
+                android:background="?android:attr/colorButtonNormal"
+                android:layout_marginBottom="35dp"
+                android:hint="Mobile Number"
+                android:padding="15dp" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:inputType="textPassword"
+                android:ems="10"
+                android:id="@+id/etPassword"
+                android:background="?attr/colorButtonNormal"
+                android:hint="Password"
+                android:padding="15dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/ButtonContainer"
+            android:layout_marginTop="20dp">
+
+            <ImageButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/btn_login"
+                android:id="@+id/imageButton2"
+                android:background="@null"
+                android:onClick="Login" />
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>

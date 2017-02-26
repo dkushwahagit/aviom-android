@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+<item android:id="@+id/action_menu_home"
+    android:title="@string/menu_home"
+    app:showAsAction="always"
+    android:icon="@drawable/home">
+</item>
+<item android:id="@+id/action_menu_myleads"
+    android:title="@string/menu_myleads"
+    app:showAsAction="always"
+    android:icon="@drawable/bars">
+</item>
+    <item android:id="@+id/action_menu_newlead"
+        android:title="@string/menu_newlead"
+        app:showAsAction="always"
+        android:icon="@drawable/extending_leads">
+    </item>
+    <item android:id="@+id/action_menu_appointments"
+        android:title="@string/menu_appointments"
+        app:showAsAction="always"
+        android:icon="@drawable/turn_notifications_on_button">
+    </item>
+    <item android:id="@+id/action_menu_signout"
+        android:title="@string/menu_logout"
+        app:showAsAction="always"
+        android:icon="@drawable/exit">
+    </item>
+</menu>
