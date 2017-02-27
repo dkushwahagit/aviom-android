@@ -44,12 +44,12 @@ public class MyLeadsListAdapter extends BaseAdapter {
         View myView= LayoutInflater.from(parent.getContext()).inflate(R.layout.leads_list_item,parent,false);
         TextView _tvLeadCreatedOn = (TextView)myView.findViewById(R.id.tvLeadCreatedOn);
         TextView _tvLeadCustomerName = (TextView)myView.findViewById(R.id.tvCustomername);
-        TextView _tvLeadPhoneNumber = (TextView)myView.findViewById(R.id.tvPhonNumber);
+      //  TextView _tvLeadPhoneNumber = (TextView)myView.findViewById(R.id.tvPhonNumber);
         TextView _tvLeadSattus = (TextView)myView.findViewById(R.id.tvLeadStatus);
         Lead lead=leadList.get(position);
         _tvLeadCreatedOn.setText(lead.getCreated_on());
         _tvLeadCustomerName.setText(lead.getCustomername());
-        _tvLeadPhoneNumber.setText(lead.getPhone());
+     //   _tvLeadPhoneNumber.setText(lead.getPhone());
         _tvLeadSattus.setText(lead.getStatus()==1?"new":"Open");
         //tv.setText(mArrayList[position]);
         return myView;

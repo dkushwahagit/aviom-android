@@ -27,9 +27,13 @@ public class NewleadFragement extends Fragment {
         mtoolBar.setTitle("Add New Lead");
         //Set autocomplete Budget values
         String[] budget ={"Select Budget","0-3 Lacs","3.1 - 5 Lacs","Above 5 Lacs"};
+        String[] leadstatus ={"Select Status","New","Follow up","Closed"};
         Spinner spinnerBudget = (Spinner) v.findViewById(R.id.spinBudget);
+        Spinner spinnerLeadstatus=(Spinner)v.findViewById(R.id.leadStatus);
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(v.getContext(), R.layout.spinner_text_item ,budget);
         spinnerBudget.setAdapter(arrayAdapter);
+        ArrayAdapter<String> arrayAdapter1 = new ArrayAdapter<String>(v.getContext(), R.layout.spinner_text_item ,leadstatus);
+        spinnerLeadstatus.setAdapter(arrayAdapter1);
         return v;
         //return super.onCreateView(inflater, container, savedInstanceState);
     }

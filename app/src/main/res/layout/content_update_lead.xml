@@ -8,7 +8,7 @@
         android:layout_width="match_parent"
         android:layout_height="240dp"
         android:orientation="vertical"
-        android:background="@color/colorThemeOrange">
+        android:background="@color/secondColor">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -162,7 +162,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="@dimen/edit_text_head_height"
-        android:background="@color/colorThemeBlue"
+        android:background="@color/colorAccent"
         android:padding="10dp"
         >
     <TextView
@@ -201,7 +201,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="F2F"
-                android:textColor="@color/colorThemeBlue"
+                android:textColor="@color/colorPrimaryDark"
                 android:textSize="24sp"
                 />
         </LinearLayout>
@@ -228,7 +228,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="02-FEB-2017"
-                android:textColor="@color/colorThemeBlue"
+                android:textColor="@color/colorPrimaryDark"
                 android:textSize="24sp"
                 />
         </LinearLayout>

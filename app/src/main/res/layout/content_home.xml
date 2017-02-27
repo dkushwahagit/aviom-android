@@ -1,23 +1,245 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/content_home"
-    android:layout_width="match_parent"
+
+<RelativeLayout android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:background="@color/white"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <android.support.v7.widget.Toolbar
+    <ImageView
+        android:id="@+id/header_cover_image"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="?attr/colorPrimary"
-        android:theme="?attr/actionBarTheme"
-        android:minHeight="?attr/actionBarSize"
-        android:title="Home Fragement"
-        android:id="@+id/toolbar" />
+        android:layout_height="200dp"
+        android:scaleType="center"
+        android:src="@drawable/logo" />
 
-    <TextView
-        android:id="@+id/textView2"
+    <ImageButton
+        android:id="@+id/user_profile_photo"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_below="@+id/header_cover_image"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="-40dp"
+        android:background="@drawable/profile_circular_border_imageview"
+        android:elevation="5dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/profile" />
+
+    <RelativeLayout
+        android:id="@+id/profile_layout"
+        android:layout_width="match_parent"
+        android:layout_height="160dp"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/header_cover_image"
+        android:background="@color/profilebackground"
+        android:paddingBottom="24dp">
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/firstlayout"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_below="@+id/profile_layout"
+        android:background="@drawable/border_bottom"
+
+        >
+        <RelativeLayout
+            android:layout_width="300dp"
+            android:layout_height="100dp"
+            android:paddingTop="15dp"
+
+            >
+            <TextView
+                android:id="@+id/employeeidtext"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Eployee Id"
+                android:textStyle="bold"
+                android:textSize="20dp"
+                android:layout_centerHorizontal="true"
+                />
+            <TextView
+                android:id="@+id/empyeeidtext"
+                android:layout_below="@+id/employeeidtext"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="soshiv001"
+                android:layout_marginTop="4dp"
+                android:layout_centerHorizontal="true"
+                android:textSize="20dp"
+                />
+        </RelativeLayout>
+
+        <RelativeLayout
+
+            android:layout_width="300dp"
+            android:layout_height="99dp"
+            android:paddingTop="15dp"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/border_left"
+            >
+            <TextView
+                android:id="@+id/employeenametext"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Employee Name"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:layout_centerHorizontal="true"
+                />
+            <TextView
+                android:layout_below="@+id/employeenametext"
+                android:id="@+id/showusername"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Soshiv Upreti"
+                android:textSize="20dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="4dp"
+                />
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+
+
+    <RelativeLayout
+        android:id="@+id/secondlayout"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_below="@+id/firstlayout"
+        android:background="@drawable/border_bottom"
+        >
+        <RelativeLayout
+            android:layout_width="300dp"
+            android:layout_height="100dp"
+
+            android:paddingTop="15dp"
+            >
+            <TextView
+                android:id="@+id/employeebranchtext"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Brnach"
+                android:textStyle="bold"
+                android:textSize="20dp"
+                android:layout_centerHorizontal="true"
+                />
+            <TextView
+                android:id="@+id/contactnumber1"
+                android:layout_below="@+id/employeebranchtext"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="4dp"
+                android:text="new branch"
+                android:textSize="20dp"
+                />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="300dp"
+            android:layout_height="99dp"
+            android:layout_alignParentRight="true"
+            android:paddingTop="15dp"
+            android:background="@drawable/border_left"
+            >
+            <TextView
+                android:id="@+id/employeedepartmenttext"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Department"
+                android:layout_centerHorizontal="true"
+                android:textStyle="bold"
+                android:textSize="20dp"
+                />
+            <TextView
+                android:layout_below="@+id/employeedepartmenttext"
+                android:id="@+id/employeedepartment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:text="Development"
+                android:layout_marginTop="4dp"
+                android:textSize="20dp"
+                />
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/thiredlayout"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_below="@+id/secondlayout"
+        android:background="@color/profilebackground"
+        >
+        <RelativeLayout
+            android:layout_width="300dp"
+            android:layout_height="100dp"
+            android:paddingTop="15dp"
+            >
+            <TextView
+                android:id="@+id/employeesupervisortext"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:text="Supervisor"
+                android:textStyle="bold"
+                android:textSize="20dp"
+                />
+            <TextView
+                android:id="@+id/supervisor"
+                android:layout_below="@+id/employeesupervisortext"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:text="supervisor"
+                android:layout_marginTop="4dp"
+                android:textSize="20dp"
+                />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="300dp"
+            android:layout_height="99dp"
+            android:layout_alignParentRight="true"
+            android:paddingTop="15dp"
+            android:background="@drawable/border_left"
+            >
+            <TextView
+                android:id="@+id/contactnumberText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Phone Number"
+                android:layout_centerHorizontal="true"
+                android:textStyle="bold"
+                android:textSize="20dp"
+                />
+            <TextView
+                android:layout_below="@+id/contactnumberText"
+                android:id="@+id/contactnumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="7895755987"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="4dp"
+                android:textSize="20dp"
+                />
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Home Fragement"
-        android:textSize="24sp" />
-</LinearLayout>
+        android:layout_below="@+id/thiredlayout"
+        android:background="@color/profilebackground"
+        >
+
+
+
+    </RelativeLayout>
+</RelativeLayout>
+

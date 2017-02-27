@@ -10,6 +10,7 @@ import android.widget.FrameLayout;
 
 import com.aviom.aviomplay.Fragments.AppointmentsFragement;
 import com.aviom.aviomplay.Fragments.HomeFragement;
+import com.aviom.aviomplay.Fragments.LeadDetailsFragment;
 import com.aviom.aviomplay.Fragments.MyleadsFragement;
 import com.aviom.aviomplay.Fragments.NewleadFragement;
 import com.aviom.aviomplay.R;
@@ -41,7 +42,10 @@ public class MainActivity extends AppCompatActivity {
                        getSupportFragmentManager().beginTransaction().replace(R.id.container,new MyleadsFragement(),"").commit();
                        break;
                    case R.id.action_menu_appointments:
-                       getSupportFragmentManager().beginTransaction().replace(R.id.container,new AppointmentsFragement(),"").commit();
+                       getSupportFragmentManager().beginTransaction().replace(R.id.container,new LeadDetailsFragment(),"").commit();
+                       break;
+                   case R.id.action_menu_signout:
+                    //   getSupportFragmentManager().beginTransaction().replace(R.id.container,new LeadDetailsFragment(),"").commit();
                        break;
                }
                 return false;

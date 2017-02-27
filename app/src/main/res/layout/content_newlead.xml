@@ -12,7 +12,7 @@
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:background="@color/colorThemeBlue"
+        android:background="@color/colorPrimary"
         android:layout_height="@dimen/toolbar_height"
         app:titleTextAppearance="@style/Toolbar.TitleText"
         />
@@ -50,7 +50,7 @@
         android:background="@drawable/customborder"
         android:drawableLeft="@drawable/compass"
         android:drawablePadding="10dp"
-        android:hint="Customer Location"
+        android:hint="City"
         android:textSize="24sp"
         />
     <FrameLayout
@@ -129,6 +129,63 @@
         android:maxLength="100"
         android:scrollbars="vertical"
         />
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/edit_text_height"
+        android:background="@drawable/customborder"
+        android:layout_margin="10dp"
+        >
+        <android.support.v7.widget.AppCompatImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/upload"
+            />
+        <TextView
+            android:id="@+id/uploadimage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Upload Image"
+            android:paddingLeft="64dp"
+            >
+
+        </TextView>
+    </FrameLayout>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/edit_text_height"
+        android:background="@drawable/customborder"
+        android:layout_margin="10dp"
+        >
+        <android.support.v7.widget.AppCompatImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/leadstatus"
+            />
+        <android.support.v7.widget.AppCompatSpinner
+            android:id="@+id/leadStatus"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingLeft="64dp"
+           >
+
+        </android.support.v7.widget.AppCompatSpinner>
+    </FrameLayout>
+    <EditText
+        android:id="@+id/nextAppointment"
+        android:inputType="textMultiLine"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/edit_text_height"
+        android:layout_margin="10dp"
+        android:background="@drawable/customborder"
+        android:drawableLeft="@drawable/appointmentdate"
+        android:drawablePadding="10dp"
+        android:hint="Next Appointment Date"
+        android:textSize="24sp"
+        android:minLines="2"
+        android:maxLines="3"
+        android:maxLength="200"
+        android:scrollbars="vertical"
+        />
     <EditText
         android:id="@+id/etRemarks"
         android:inputType="textMultiLine"
@@ -154,12 +211,14 @@
             android:layout_width="250dp"
             android:layout_height="80dp"
             android:layout_gravity="center"
-            android:background="@color/colorThemeBlue"
+            android:background="@color/colorPrimary"
             android:text="Create"
             android:textColor="#fff"
             android:textSize="18sp"
             android:padding="5dp"
             />
+
     </LinearLayout>
+
 </LinearLayout>
 </ScrollView>
