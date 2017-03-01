@@ -216,24 +216,36 @@
 
 
         </LinearLayout>
-        <LinearLayout
-            android:layout_width="wrap_content"
+        <RelativeLayout
+            android:layout_width="0dp"
             android:layout_height="match_parent"
             android:background="@drawable/border_left"
-            android:gravity="center_horizontal|center_vertical">
+            android:layout_weight="1"
+            android:orientation="vertical"
+           >
+            <android.support.v7.widget.AppCompatButton
+                android:layout_marginTop="10dp"
+                android:layout_width="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_height="40dp"
+                android:text="Edit "
+                android:layout_weight="1"
+                android:textColor="@color/colorPrimaryDark"
+                android:background="@drawable/callnow_bg"
+                />
 
             <android.support.v7.widget.AppCompatButton
-                android:id="@+id/callnow"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_gravity="center_horizontal|center_vertical"
                 android:text="CALL NOW  "
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:layout_weight="1"
                 android:textColor="@color/colorPrimaryDark"
                 android:background="@drawable/callnow_bg"
                 android:layout_marginRight="10dp"
                 android:drawableLeft="@drawable/callnow_bg" />
-        </LinearLayout>
+        </RelativeLayout>
     </LinearLayout>
     <LinearLayout
         android:orientation="vertical"

@@ -15,7 +15,36 @@ public class Lead {
     String remarks;
     String latitude;
     String longitude;
+    String budget;
+    String property_identified;
+    String property_address;
 
+    public String getProperty_address() {
+        return property_address;
+    }
+
+    public void setProperty_address(String property_address) {
+        this.property_address = property_address;
+    }
+
+
+    public String getProperty_identified() {
+        return property_identified;
+    }
+
+    public void setProperty_identified(String property_identified) {
+        this.property_identified = property_identified;
+    }
+
+
+
+    public String getBudget() {
+        return budget;
+    }
+
+    public void setBudget(String budget) {
+        this.budget = budget;
+    }
     public String getLocation() {
         return location;
     }
