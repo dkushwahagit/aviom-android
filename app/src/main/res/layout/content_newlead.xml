@@ -65,7 +65,7 @@
             android:background="@drawable/budget"
             />
         <android.support.v7.widget.AppCompatSpinner
-            android:id="@+id/spinBudget"
+            android:id="@+id/spinnerBudget"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:paddingLeft="64dp"
@@ -91,6 +91,7 @@
                 android:layout_marginRight="10dp"
                 />
         <TextView
+
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:text="Property Identified"
@@ -103,7 +104,8 @@
                 android:layout_height="match_parent"
                 android:gravity="right"
                 >
-                <android.support.v7.widget.SwitchCompat
+                <Switch
+                    android:id="@+id/propertyidentified"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
@@ -114,7 +116,7 @@
         </LinearLayout>
     </FrameLayout>
     <EditText
-        android:id="@+id/etAddress"
+        android:id="@+id/etPropertyAddress"
         android:inputType="textMultiLine"
         android:layout_width="match_parent"
         android:layout_height="@dimen/edit_text_height"
@@ -140,11 +142,18 @@
             android:layout_height="wrap_content"
             android:background="@drawable/upload"
             />
+        <ImageView
+            android:id="@+id/imageuplod"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            />
         <TextView
-            android:id="@+id/uploadimage"
+            android:id="@+id/imageView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="Upload Image"
+            android:onClick="showImagePopup"
             android:paddingLeft="64dp"
             >
 
@@ -162,7 +171,7 @@
             android:background="@drawable/leadstatus"
             />
         <android.support.v7.widget.AppCompatSpinner
-            android:id="@+id/leadStatus"
+            android:id="@+id/spinnerleadStatus"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:paddingLeft="64dp"
@@ -171,7 +180,7 @@
         </android.support.v7.widget.AppCompatSpinner>
     </FrameLayout>
     <EditText
-        android:id="@+id/nextAppointment"
+        android:id="@+id/nextAppointmentdate"
         android:inputType="textMultiLine"
         android:layout_width="match_parent"
         android:layout_height="@dimen/edit_text_height"
@@ -208,6 +217,7 @@
         android:gravity="center_horizontal"
         >
         <Button
+            android:id="@+id/btn_create"
             android:layout_width="250dp"
             android:layout_height="80dp"
             android:layout_gravity="center"

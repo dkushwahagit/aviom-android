@@ -50,27 +50,30 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String COL_LEAD_LATITUDE="latitude";
     private static final String COL_LEAD_LONGITUDE="longitude";
     private static final String COL_LEAD_STATUS="status";
-    private static final String COL_LEAD_UPSHEDONDATE="pushedondate";
-    private static final String COL_LEAD_PROPERTYIDENTIFIED="no";
-    private static final String COL_LEAD_PROPERTYADDRESS="none";
+    private static final String COL_LEAD_PUSHEDONDATE="pushedondate";
+    private static final String COL_LEAD_PROPERTYIDENTIFIED="property_identified";
+    private static final String COL_LEAD_PROPERTYADDRESS="property_Address";
+    private static final String COL_LEAD_IMAGE="client_image";
+    private static final String COL_LEAD_ID="lead_id";
 
 
     //Lead Table Ends Here
 
     //Table Create Statements
     private static final String CREATE_TABLE_USER="CREATE TABLE "+ TBL_USER +
-                            "("+COL_ID+" INTEGER PRIMARY KEY, "+ COL_USER_USERNAME +" TEXT, "
+                            "("+COL_ID +" INTEGER PRIMARY KEY, "+ COL_USER_USERNAME +" TEXT, "
                              + COL_USER_PASSWORD +" TEXT, " +COL_USER_STATUS+ " INTEGER, " +COL_CREATED_ON + " DATETIME )";
 
     //Table Create Statements
     private static final String CREATE_TABLE_LEAD="CREATE TABLE "+ TBL_LEAD +
             "("+COL_ID+" INTEGER PRIMARY KEY, "+ COL_LEAD_CUSTOMERNAME +" TEXT, "
+            + COL_LEAD_ID +" TEXT, "
             + COL_LEAD_PHONE +" TEXT, " +COL_LEAD_STATUS+ " INTEGER, "
             + COL_LEAD_EMAIL +" TEXT, " +COL_LEAD_BUDGET+ " TEXT, "
             + COL_LEAD_LOCATION +" TEXT, " +COL_LEAD_REMARKS+ " TEXT, "
             + COL_LEAD_LATITUDE +" TEXT, " +COL_LEAD_LONGITUDE+ " TEXT, "
             + COL_LEAD_PROPERTYIDENTIFIED +" TEXT, "+ COL_LEAD_PROPERTYADDRESS+ " TEXT, "
-            + COL_CREATED_ON + " DATETIME, "+COL_LEAD_UPSHEDONDATE+ " DATETIME )";
+            + COL_CREATED_ON + " DATETIME, "+ COL_LEAD_IMAGE +" BLOB, "+ COL_LEAD_PUSHEDONDATE+ " DATETIME )";
 
 
     public DatabaseHelper(Context context) {
@@ -154,13 +157,27 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(COL_LEAD_PROPERTYADDRESS,lead.getProperty_address());
         values.put(COL_LEAD_REMARKS,lead.getRemarks());
         values.put(COL_LEAD_STATUS,lead.getStatus());
-
-
-
+        values.put(COL_LEAD_LATITUDE,lead.getLatitude());
+        values.put(COL_LEAD_LONGITUDE,lead.getLongitude());
+        values.put(COL_LEAD_ID,lead.getLeadid());
+        values.put(COL_CREATED_ON,lead.getCreated_on());
+        values.put(COL_LEAD_PUSHEDONDATE,"2007");
         //insert into User table
-        long user_id = db.insert(TBL_USER,null,values);
+        long user_id = db.insert(TBL_LEAD,null,values);
 
         return user_id;
+    }
+
+    public int getLeadByCreateON(String date)
+    {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor mCount= db.rawQuery("select count(*) from "+TBL_LEAD+" where created_on like '" + date +"%"+ "'", null);
+        String qry="select count(*) from "+TBL_LEAD+" where created_on like '" + date +"%"+ "'";
+        Log.d("query",qry);
+        mCount.moveToFirst();
+        int count= mCount.getInt(0);
+        mCount.close();
+       return count;
     }
     // closing database
     public void closeDB() {
