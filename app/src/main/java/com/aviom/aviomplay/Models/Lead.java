@@ -18,6 +18,16 @@ public class Lead {
     String budget;
     String property_identified;
     String property_address;
+    String leadid;
+    public String getLeadid() {
+        return leadid;
+    }
+
+    public void setLeadid(String leadid) {
+        this.leadid = leadid;
+    }
+
+
 
     public String getProperty_address() {
         return property_address;

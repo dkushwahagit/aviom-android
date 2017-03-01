@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.ListView;
 
 import com.aviom.aviomplay.Adapters.MyLeadsListAdapter;
+import com.aviom.aviomplay.Helpers.DatabaseHelper;
 import com.aviom.aviomplay.Models.Lead;
 import com.aviom.aviomplay.R;
 
@@ -28,6 +29,7 @@ public class MyleadsFragement extends Fragment {
 
 
     private ListView myLeadsListView;
+    List<Lead> lstLeads;
 
     String[] myList=new String[]{"A","b","C"};
     //List<Lead> lstLeads = new ArrayList<Lead>();
@@ -39,7 +41,8 @@ public class MyleadsFragement extends Fragment {
         View v=inflater.inflate(R.layout.content_myleads,container,false);
         Toolbar mtoolBar = (Toolbar)v.findViewById(R.id.toolbar);
         myLeadsListView=(ListView)v.findViewById(R.id.myLeadsListView);
-
+        DatabaseHelper db = new DatabaseHelper(getActivity());
+       lstLeads=db.getAllLeads();
         MyLeadsListAdapter myLeadsListAdapter=new MyLeadsListAdapter(this.getDummyLeads());
         myLeadsListView.setAdapter(myLeadsListAdapter);
         mtoolBar.setTitle("My Leads");
@@ -48,23 +51,18 @@ public class MyleadsFragement extends Fragment {
     }
 
     private List<Lead> getDummyLeads(){
-        List<Lead> lstLeads = new ArrayList<Lead>();
+       List<Lead> lstLeads1 = new ArrayList<Lead>();
         String Date_Format =  "dd-MM-yyyy";
         DateFormat dateformat=new SimpleDateFormat(Date_Format);
 
-        for(int i=0;i<5;i++){
+        for(int i=0;i<lstLeads.size();i++){
             Lead ld = new Lead();
             ld.setId(i);
-            ld.setCustomername("Lead Customer "+Integer.toString(i));
-            ld.setPhone(Integer.toString(32454453*(i+1)));
+            ld.setCustomername(lstLeads.get(i).getCustomername());
+            ld.setPhone(lstLeads.get(i).getPhone());
             ld.setCreated_on(dateformat.format(new Date()).toString());
-            if(i<3) {
-                ld.setStatus(1);
-            }else{
-                ld.setStatus(2);
-            }
-            lstLeads.add(ld);
+            lstLeads1.add(ld);
         }
-        return lstLeads;
+        return lstLeads1;
     }
 }
