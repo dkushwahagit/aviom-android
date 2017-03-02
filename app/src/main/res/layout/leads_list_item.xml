@@ -23,15 +23,15 @@
                 android:layout_height="60dp"
                 android:layout_gravity="center"
                 >
-                <ImageButton
+                <ImageView
                     android:id="@+id/user_profile_photo"
                     android:layout_width="60dp"
                     android:layout_height="60dp"
-
-                    android:background="@drawable/profile_circular_border_imageview"
+                    android:background="@drawable/custom_rounded_border"
                     android:elevation="5dp"
+                    android:src="@drawable/profile"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/profile" />
+                     />
 
             </LinearLayout>
 
@@ -43,7 +43,7 @@
 
 
                 <TextView
-                    android:id="@+id/customername"
+                    android:id="@+id/tvLabelCustomername"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
@@ -59,7 +59,7 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/tvLeadCreatedOn"
+                    android:id="@+id/tvcity"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="fill_horizontal|center"
@@ -82,7 +82,6 @@
                     android:layout_weight="1"
                     android:background="@drawable/status_bg"
                     android:gravity="center_horizontal"
-                    android:text="new"
                     android:textColor="#fff"
                     android:textSize="24sp" />
             </LinearLayout>
@@ -110,7 +109,7 @@
                     >
 
                     <TextView
-                        android:id="@+id/tvLabelCustomername"
+
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="PHONE NUMBER"
@@ -118,7 +117,7 @@
                         android:textSize="20sp" />
 
                     <TextView
-                        android:id="@+id/tvCustomername"
+                        android:id="@+id/tvphone"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="7895755987"
@@ -141,7 +140,7 @@
                         android:textSize="20sp" />
 
                     <TextView
-                        android:id="@+id/tvPhonNr"
+                        android:id="@+id/tvbudget"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="5-10 lacs"
@@ -172,7 +171,7 @@
         android:textSize="20sp" />
 
     <TextView
-        android:id="@+id/tvP"
+        android:id="@+id/tvLeadCreatedOn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="2017-2-27"
@@ -199,7 +198,7 @@
                             android:textSize="20sp" />
 
                         <TextView
-                            android:id="@+id/tvPh"
+                            android:id="@+id/tvappointment"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="10dp"
@@ -222,6 +221,7 @@
             android:gravity="center_horizontal|center_vertical">
 
             <android.support.v7.widget.AppCompatImageButton
+                android:id="@+id/view_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@null"

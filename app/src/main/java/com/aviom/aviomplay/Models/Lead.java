@@ -19,6 +19,26 @@ public class Lead {
     String property_identified;
     String property_address;
     String leadid;
+
+    public String getAppoimentdate() {
+        return appoimentdate;
+    }
+
+    public void setAppoimentdate(String appoimentdate) {
+        this.appoimentdate = appoimentdate;
+    }
+
+    String appoimentdate;
+
+    public byte[] getImage() {
+        return image;
+    }
+
+    public void setImage(byte[] image) {
+        this.image = image;
+    }
+
+    byte[] image;
     public String getLeadid() {
         return leadid;
     }

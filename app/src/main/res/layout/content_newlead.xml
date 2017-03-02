@@ -179,7 +179,7 @@
 
         </android.support.v7.widget.AppCompatSpinner>
     </FrameLayout>
-    <EditText
+    <TextView
         android:id="@+id/nextAppointmentdate"
         android:inputType="textMultiLine"
         android:layout_width="match_parent"
