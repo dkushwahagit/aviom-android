@@ -28,6 +28,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     //TABLES
     private static final String TBL_USER="user";
     private static final String TBL_LEAD="lead";
+    private static final String TBL_LEAD_INTERACTION="lead_interaction";
 
     // Common column names
     private static final String COL_ID = "id";
@@ -55,9 +56,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String COL_LEAD_PROPERTYADDRESS="property_Address";
     private static final String COL_LEAD_IMAGE="client_image";
     private static final String COL_LEAD_ID="lead_id";
-
-
     //Lead Table Ends Here
+
+    //Lead Interaction Table Starts Here
+    private static final String COL_STATUS="status";
+    private static final String COL_PLANNED_BY="planned_by";
+    private static final String COL_PLANNED_ON="planned_on";
+    private static final String COL_REMARKS="remarks";
+    //Lead Interaction Table Ends Here
 
     //Table Create Statements
     private static final String CREATE_TABLE_USER="CREATE TABLE "+ TBL_USER +
@@ -75,6 +81,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             + COL_LEAD_PROPERTYIDENTIFIED +" TEXT, "+ COL_LEAD_PROPERTYADDRESS+ " TEXT, "
             + COL_CREATED_ON + " DATETIME, "+ COL_LEAD_IMAGE +" BLOB, "+ COL_LEAD_PUSHEDONDATE+ " DATETIME )";
 
+    //Table Create Statements
+    private static final String CREATE_TABLE_LEAD_INTERACTION="CREATE TABLE "+ TBL_LEAD_INTERACTION +
+            "("+COL_ID+" INTEGER PRIMARY KEY, "+ COL_LEAD_ID +" TEXT, "
+            + COL_STATUS +" INTEGER, "
+            + COL_PLANNED_BY +" INTEGER, " +COL_PLANNED_ON+ " DATETIME, "
+            + COL_REMARKS +" TEXT, "
+            + COL_CREATED_ON + " DATETIME, "+ COL_LEAD_PUSHEDONDATE+ " DATETIME )";
+
 
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -84,6 +98,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(CREATE_TABLE_USER);
         db.execSQL(CREATE_TABLE_LEAD);
+        db.execSQL(CREATE_TABLE_LEAD_INTERACTION);
     }
 
     @Override
