@@ -6,11 +6,9 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
-
 import com.aviom.aviomplay.Models.Interaction;
 import com.aviom.aviomplay.Models.Lead;
 import com.aviom.aviomplay.Models.User;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -138,10 +136,36 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         user.setSatus(c.getInt(c.getColumnIndex(COL_USER_STATUS)));
         return user;
     }
+    public Lead getLeadByLeadId(long Lead_id){
+        SQLiteDatabase db = this.getReadableDatabase();
+        String selectQuery = "SELECT * FROM " + TBL_LEAD_INTERACTION+" left join "+ TBL_LEAD +" on "+ TBL_LEAD+".id="+ TBL_LEAD_INTERACTION +".lead_id"+" WHERE " + TBL_LEAD+"."+COL_ID + " = " +Lead_id +  " GROUP BY "+TBL_LEAD+"."+COL_ID;
 
+                //"SELECT * FROM " + TBL_LEAD + " WHERE " + COL_ID + " = " +Lead_id;
+        Cursor c = db.rawQuery(selectQuery,null);
+        if(c!=null){
+            c.moveToFirst();
+        }
+        Lead ld = new Lead();
+        ld.setId(c.getInt(c.getColumnIndex(COL_ID)));
+        ld.setCustomername(c.getString(c.getColumnIndex(COL_LEAD_CUSTOMERNAME)));
+        ld.setEmail(c.getString(c.getColumnIndex(COL_LEAD_EMAIL)));
+        ld.setPhone(c.getString(c.getColumnIndex(COL_LEAD_PHONE)));
+        ld.setStatus(c.getInt(c.getColumnIndex(COL_LEAD_STATUS)));
+        ld.setLocation(c.getString(c.getColumnIndex(COL_LEAD_LOCATION)));
+        ld.setLatitude(c.getString(c.getColumnIndex(COL_LEAD_LATITUDE)));
+        ld.setLongitude(c.getString(c.getColumnIndex(COL_LEAD_LONGITUDE)));
+        ld.setProperty_identified(c.getString(c.getColumnIndex(COL_LEAD_PROPERTYIDENTIFIED)));
+        ld.setProperty_address(c.getString(c.getColumnIndex(COL_LEAD_PROPERTYADDRESS)));
+        ld.setBudget(c.getString(c.getColumnIndex(COL_LEAD_BUDGET)));
+        ld.setImage(c.getBlob(c.getColumnIndex(COL_LEAD_IMAGE)));
+        ld.setCreated_on(c.getString(c.getColumnIndex(COL_CREATED_ON)));
+        ld.setAppoimentdate(c.getString(c.getColumnIndex(COL_PLANNED_ON)));
+
+        return ld;
+    }
     public List<Lead> getAllLeads(){
         List<Lead> lstLeads = new ArrayList<Lead>();
-        String sqlQuery = "SELECT * FROM " + TBL_LEAD+" inner join "+ TBL_LEAD_INTERACTION +" on "+ TBL_LEAD+".id="+ TBL_LEAD_INTERACTION +".lead_id";
+        String sqlQuery = "SELECT * FROM " + TBL_LEAD_INTERACTION+" left join "+ TBL_LEAD +" on "+ TBL_LEAD+".id="+ TBL_LEAD_INTERACTION +".lead_id"+" GROUP BY "+TBL_LEAD+"."+COL_ID;
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor c = db.rawQuery(sqlQuery,null);
         if(c.moveToFirst()){
@@ -157,6 +181,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 ld.setLongitude(c.getString(c.getColumnIndex(COL_LEAD_LONGITUDE)));
                 ld.setBudget(c.getString(c.getColumnIndex(COL_LEAD_BUDGET)));
                 ld.setImage(c.getBlob(c.getColumnIndex(COL_LEAD_IMAGE)));
+                ld.setCreated_on(c.getString(c.getColumnIndex(COL_CREATED_ON)));
                 ld.setAppoimentdate(c.getString(c.getColumnIndex(COL_PLANNED_ON)));
                 lstLeads.add(ld);
             }while (c.moveToNext());
@@ -216,10 +241,77 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         mCount.close();
         return count;
     }
+    public boolean updateLeadAndCreateNewAppointment( int leadid, int leadstatus,String remark)
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+     //   Cursor mCount= db.rawQuery("UPDATE "+TBL_LEAD+ " SET "+COL_LEAD_STATUS+" = "+leadstatus+", "+COL_LEAD_REMARKS+" = "+remark+" where "+COL_ID+" = "+leadid, null);
+      //  String qry="select count(*) from "+TBL_LEAD+" where created_on like '" + date +"%"+ "'";
+        ContentValues data=new ContentValues();
+        data.put(COL_LEAD_STATUS, leadstatus);
+        data.put(COL_LEAD_REMARKS,remark);
+        db.update(TBL_LEAD, data, COL_ID+"=" + leadid, null);
+        return true;
+    }
+
+    public List<Lead> getAllAppointment(){
+        List<Lead> lstLeads = new ArrayList<Lead>();
+        String sqlQuery = "SELECT * FROM " + TBL_LEAD_INTERACTION+" join "+ TBL_LEAD +" on "+ TBL_LEAD+".id="+ TBL_LEAD_INTERACTION +".lead_id";
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c = db.rawQuery(sqlQuery,null);
+        if(c.moveToFirst()){
+            do{
+                Lead ld = new Lead();
+                ld.setId(c.getInt(c.getColumnIndex(COL_ID)));
+                ld.setCustomername(c.getString(c.getColumnIndex(COL_LEAD_CUSTOMERNAME)));
+                ld.setEmail(c.getString(c.getColumnIndex(COL_LEAD_EMAIL)));
+                ld.setPhone(c.getString(c.getColumnIndex(COL_LEAD_PHONE)));
+                ld.setStatus(c.getInt(c.getColumnIndex(COL_LEAD_STATUS)));
+                ld.setLocation(c.getString(c.getColumnIndex(COL_LEAD_LOCATION)));
+                ld.setLatitude(c.getString(c.getColumnIndex(COL_LEAD_LATITUDE)));
+                ld.setLongitude(c.getString(c.getColumnIndex(COL_LEAD_LONGITUDE)));
+                ld.setBudget(c.getString(c.getColumnIndex(COL_LEAD_BUDGET)));
+                ld.setImage(c.getBlob(c.getColumnIndex(COL_LEAD_IMAGE)));
+                ld.setCreated_on(c.getString(c.getColumnIndex(COL_CREATED_ON)));
+                ld.setAppoimentdate(c.getString(c.getColumnIndex(COL_PLANNED_ON)));
+                lstLeads.add(ld);
+            }while (c.moveToNext());
+        }
+        return lstLeads;
+    }
+
+    public List<Lead> getAllAppointmentByFilter(String date,String compare){
+        List<Lead> lstLeads = new ArrayList<Lead>();
+        String sqlQuery = "SELECT * FROM " + TBL_LEAD_INTERACTION+" join "+ TBL_LEAD +" on "+ TBL_LEAD+".id="+ TBL_LEAD_INTERACTION +".lead_id"+" Where "+ TBL_LEAD_INTERACTION+"."+COL_PLANNED_ON +compare+date;
+       Log.d("Sql is =",sqlQuery);
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c = db.rawQuery(sqlQuery,null);
+        if(c.moveToFirst()){
+            do{
+                Lead ld = new Lead();
+                ld.setId(c.getInt(c.getColumnIndex(COL_ID)));
+                ld.setCustomername(c.getString(c.getColumnIndex(COL_LEAD_CUSTOMERNAME)));
+                ld.setEmail(c.getString(c.getColumnIndex(COL_LEAD_EMAIL)));
+                ld.setPhone(c.getString(c.getColumnIndex(COL_LEAD_PHONE)));
+                ld.setStatus(c.getInt(c.getColumnIndex(COL_LEAD_STATUS)));
+                ld.setLocation(c.getString(c.getColumnIndex(COL_LEAD_LOCATION)));
+                ld.setLatitude(c.getString(c.getColumnIndex(COL_LEAD_LATITUDE)));
+                ld.setLongitude(c.getString(c.getColumnIndex(COL_LEAD_LONGITUDE)));
+                ld.setBudget(c.getString(c.getColumnIndex(COL_LEAD_BUDGET)));
+                ld.setImage(c.getBlob(c.getColumnIndex(COL_LEAD_IMAGE)));
+                ld.setCreated_on(c.getString(c.getColumnIndex(COL_CREATED_ON)));
+                ld.setAppoimentdate(c.getString(c.getColumnIndex(COL_PLANNED_ON)));
+                lstLeads.add(ld);
+            }while (c.moveToNext());
+        }
+        return lstLeads;
+    }
+
     // closing database
     public void closeDB() {
         SQLiteDatabase db = this.getReadableDatabase();
         if (db != null && db.isOpen())
             db.close();
     }
+
+
 }

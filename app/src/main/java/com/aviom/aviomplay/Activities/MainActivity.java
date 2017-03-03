@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
                        getSupportFragmentManager().beginTransaction().replace(R.id.container,new MyleadsFragement(),"").commit();
                        break;
                    case R.id.action_menu_appointments:
-                     //  getSupportFragmentManager().beginTransaction().replace(R.id.container,new LeadDetailsFragment(),"").commit();
+                      getSupportFragmentManager().beginTransaction().replace(R.id.container,new AppointmentsFragement(),"").commit();
                        break;
                    case R.id.action_menu_signout:
                     //   getSupportFragmentManager().beginTransaction().replace(R.id.container,new LeadDetailsFragment(),"").commit();

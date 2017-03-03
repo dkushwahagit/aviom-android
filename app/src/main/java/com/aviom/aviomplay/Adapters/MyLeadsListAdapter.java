@@ -6,6 +6,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
+import android.provider.ContactsContract;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
@@ -72,7 +73,7 @@ public class MyLeadsListAdapter extends BaseAdapter {
          TextView _tvCity=(TextView) myView.findViewById(R.id.tvcity);
          TextView _tvbudget=(TextView) myView.findViewById(R.id.tvbudget);
          TextView _tvappointment=(TextView) myView.findViewById(R.id.tvappointment);
-        ImageButton _view_btn=(ImageButton)myView.findViewById(R.id.view_btn);
+       // ImageButton _view_btn=(ImageButton) myView.findViewById(R.id.view_btn);
       final  Lead lead=leadList.get(position);
         _tvLeadCreatedOn.setText(lead.getCreated_on());
         _tvCity.setText(lead.getLocation());
@@ -113,7 +114,7 @@ public class MyLeadsListAdapter extends BaseAdapter {
         else if(lead.getStatus()==7)
             _tvLeadSattus.setText(" Not interested ");
 
-        _view_btn.setOnClickListener(new View.OnClickListener() {
+      /*  _view_btn.setOnClickListener(new View.OnClickListener() {
                                           @Override
                                           public void onClick(View v) {
                                               int id=lead.getId();
@@ -122,14 +123,14 @@ public class MyLeadsListAdapter extends BaseAdapter {
                                              // FragmentManager fragmentManager = ((Activity) mContext).getFragmentManager();
                                              // fragmentManager.beginTransaction().replace(R.id.main_activity, fragment).commit();
 
-                                            /*  LeadDetailsFragment fragment2 = new LeadDetailsFragment();
-                                              android.app.FragmentManager fragmentManager = mftagment.getFragmentManager();
-                                              android.app.FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                                              fragmentTransaction.add(R.id.container, new LeadDetailsFragment());
-                                              fragmentTransaction.commit();*/
+                                            // LeadDetailsFragment fragment2 = new LeadDetailsFragment();
+                                              //android.app.FragmentManager fragmentManager = mftagment.getFragmentManager();
+                                              //android.app.FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                                              //fragmentTransaction.add(R.id.container, new LeadDetailsFragment());
+                                              //fragmentTransaction.commit();
                                           }
 
-                                      });
+                                      });*/
 
                 //tv.setText(mArrayList[position]);
         return myView;

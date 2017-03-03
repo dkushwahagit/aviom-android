@@ -5,6 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:padding="10dp"
+    android:id="@+id/mainlayout"
     tools:context="com.aviom.aviomplay.Fragments.LeadDetailsFragment">
 
     <LinearLayout
@@ -25,12 +26,11 @@
                 android:layout_height="60dp"
                 android:layout_gravity="center"
                 >
-                <ImageButton
+                <ImageView
                     android:id="@+id/user_profile_photo"
                     android:layout_width="60dp"
                     android:layout_height="60dp"
-
-                    android:background="@drawable/profile_circular_border_imageview"
+                    android:background="@drawable/customborder"
                     android:elevation="5dp"
                     android:scaleType="centerCrop"
                     android:src="@drawable/profile" />
@@ -61,7 +61,7 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/tvLeadCreatedOn"
+                    android:id="@+id/location"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="fill_horizontal|center"
@@ -77,7 +77,7 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/tvLeadStatus"
+                    android:id="@+id/LeadStatus"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="fill_horizontal|center"
@@ -120,7 +120,7 @@
                         android:textSize="20sp" />
 
                     <TextView
-                        android:id="@+id/tvCustomername"
+                        android:id="@+id/phonenumber"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="7895755987"
@@ -143,7 +143,7 @@
                         android:textSize="20sp" />
 
                     <TextView
-                        android:id="@+id/tvPhonNr"
+                        android:id="@+id/budget"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="5-10 lacs"
@@ -174,7 +174,7 @@
                             android:textSize="20sp" />
 
                         <TextView
-                            android:id="@+id/tvP"
+                            android:id="@+id/leadcreateddate"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="2017-2-27"
@@ -191,7 +191,7 @@
                         >
 
                         <TextView
-                            android:id="@+id/tvLabel"
+
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="Next Appo"
@@ -201,7 +201,7 @@
                             android:textSize="20sp" />
 
                         <TextView
-                            android:id="@+id/tvPh"
+                            android:id="@+id/nextAppointmentdatetext"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="10dp"
@@ -249,7 +249,7 @@
     </LinearLayout>
     <LinearLayout
         android:orientation="vertical"
-
+android:id="@+id/propertylayout"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:background="@color/colorPrimary"
@@ -265,7 +265,7 @@
             android:layout_height="wrap_content"
             android:textColor="@color/white"
             android:textSize="26sp"
-            android:id="@+id/tvExVin"
+            android:id="@+id/propertyaddress"
 
             android:layout_marginTop="5dp"
             android:layout_marginLeft="10dp"/>
@@ -275,7 +275,7 @@
         android:layout_height="50dp">
 
         <TextView
-            android:id="@+id/remarkstext"
+            android:id="@+id/addresstext"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/colorAccent"
@@ -338,7 +338,7 @@
             android:layout_marginTop="5dp"
             >
             <Spinner
-                android:id="@+id/spinnerinteractiontype"
+                android:id="@+id/spinnerleadstaus"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:spinnerMode="dropdown"
@@ -358,6 +358,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="0dp"
+            android:id="@+id/nextAppointmentdate"
             android:textSize="24dp"
             android:padding="10dp"
             android:text="Appointment Date"
@@ -382,6 +383,7 @@
                 />
 
             <EditText
+                android:id="@+id/remarkstext1"
                 android:layout_marginTop="10dp"
                 android:layout_width="match_parent"
                 android:text=""
@@ -394,6 +396,7 @@
 
     </LinearLayout>
     <Button
+        android:id="@+id/updatebutton"
         android:layout_width="250dp"
         android:layout_height="50dp"
         android:layout_marginTop="10dp"

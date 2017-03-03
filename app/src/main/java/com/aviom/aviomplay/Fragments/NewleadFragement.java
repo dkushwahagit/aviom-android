@@ -183,15 +183,26 @@ public class NewleadFragement extends Fragment implements GoogleApiClient.Connec
                             public void onDateSet(DatePicker view, int year,
                                                   int monthOfYear, int dayOfMonth) {
                                 // set day of month , month and year value in the edit text
-                                appointmentdate.setText( dayOfMonth+ "-"
-                                        + (monthOfYear + 1) + "-" + year);
+                                String formattedDay = (String.valueOf(dayOfMonth));
+                                String formattedMonth = (String.valueOf(monthOfYear+1));
 
+                                if (dayOfMonth < 10) {
+                                    formattedDay = "0" + dayOfMonth;
+                                }
+
+                                if (monthOfYear < 10) {
+                                    formattedMonth = "0" + (monthOfYear+1);
+                                }
+
+                                appointmentdate.setText(formattedDay + "-" + (formattedMonth) + "-" + year);
                             }
                         }, mYear, mMonth, mDay);
                 datePickerDialog.getDatePicker().setMinDate(System.currentTimeMillis() - 1000);
                 datePickerDialog.show();
             }
-        });
+        }
+        );
+
 
 
 
@@ -259,13 +270,14 @@ public class NewleadFragement extends Fragment implements GoogleApiClient.Connec
                 lead.setStatus(spinnerLeadstatus.getSelectedItemPosition());
                 lead.setLatitude(lat);
                 lead.setLongitude(lon);
-               if(!imagePath.isEmpty()) {
+               if(imagePath!=null) {
                    Bitmap b = BitmapFactory.decodeFile(imagePath);
                    ByteArrayOutputStream bos = new ByteArrayOutputStream();
                    b.compress(Bitmap.CompressFormat.JPEG, 100, bos);
                    byte[] img = bos.toByteArray();
                    lead.setImage(img);
                }
+
                long lead_id= db.createLead(lead);
              //   Toast.makeText(getActivity(), a+"sos", Toast.LENGTH_SHORT).show();
                 Interaction interaction = new Interaction();
@@ -276,7 +288,7 @@ public class NewleadFragement extends Fragment implements GoogleApiClient.Connec
                 interaction.setCreated_on(createonformate.format(createondate).toString());
                 interaction.setPlanned_by(userid);
                long lead_ineracton_id= db.createInteraction(interaction);
-                Fragment fragment = new MyleadsFragement();
+               Fragment fragment = new MyleadsFragement();
                 FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                 fragmentTransaction.replace(R.id.container, fragment);
